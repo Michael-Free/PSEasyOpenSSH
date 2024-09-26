@@ -11,7 +11,12 @@ function Install-OpenSSHServer() {
   catch {
     throw 'Unable to install OpenSSH Server'
   }
+  Start-OpenSSHServer
 
+  # enable-opensshserver
+}
+
+function Start-OpenSSHServer() {
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
 
@@ -28,17 +33,16 @@ function Install-OpenSSHServer() {
   }
 }
 
+function Enable-OpenSSHServer() {
+}
+
 function Remove-OpenSSHServer() {
 }
 
 function Disable-OpenSSHServer() {
 }
 
-function Enable-OpenSSHServer() {
-}
 
-function Start-OpenSSHServer() {
-}
 
 function Stop-OpenSSHServer() {
 }
