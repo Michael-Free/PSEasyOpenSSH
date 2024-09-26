@@ -12,6 +12,8 @@ function Install-OpenSSHServer() {
   .NOTES
   General notes
   #>
+  [CmdletBinding(SupportsShouldProcess = $true)]
+  param ()
   $openSSHFeature = Get-WindowsCapability -Online | Where-Object { $_.Name -like 'OpenSSH.Server*' }
 
   if ($openSSHFeature.State -eq 'Installed') {
@@ -43,6 +45,8 @@ function Start-OpenSSHServer() {
   .NOTES
   General notes
   #>
+  [CmdletBinding(SupportsShouldProcess = $true)]
+  param ()
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
 
@@ -73,6 +77,8 @@ function Enable-OpenSSHServer() {
   .NOTES
   General notes
   #>
+  [CmdletBinding(SupportsShouldProcess = $true)]
+  param ()
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
 
@@ -87,17 +93,19 @@ function Enable-OpenSSHServer() {
   }
 }
 
-function Stop-OpenSSHServer() {
+function Stop-OpenSSHServer {
+  [CmdletBinding(SupportsShouldProcess = $true)]
+  param ()
   <#
   .SYNOPSIS
   Short description
-  
+
   .DESCRIPTION
   Long description
-  
+
   .EXAMPLE
   An example
-  
+
   .NOTES
   General notes
   #>
@@ -107,11 +115,14 @@ function Stop-OpenSSHServer() {
   if (-not $serviceStatus) {
     throw "$serviceName cannot be found."
   }
-  try {
-    Stop-Service -Name $serviceName
-  }
-  catch {
-    throw "Unable to stop $serviceName service"
+
+  if ($PSCmdlet.ShouldProcess("$serviceName", "Stop the service")) {
+    try {
+      Stop-Service -Name $serviceName -ErrorAction Stop
+    }
+    catch {
+      throw "Unable to stop $serviceName service"
+    }
   }
 }
 
@@ -129,6 +140,8 @@ function Disable-OpenSSHServer() {
   .NOTES
   General notes
   #>
+  [CmdletBinding(SupportsShouldProcess = $true)]
+  param ()
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
 
@@ -157,6 +170,9 @@ function Remove-OpenSSHServer() {
   .NOTES
   General notes
   #>
+  [CmdletBinding(SupportsShouldProcess = $true)]
+  param ()
+
   $openSSHFeature = Get-WindowsCapability -Online | Where-Object { $_.Name -like 'OpenSSH.Server*' }
 
   if (-not $openSSHFeature.State -eq 'Installed') {
