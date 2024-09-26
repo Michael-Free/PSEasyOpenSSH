@@ -1,16 +1,17 @@
 function Install-OpenSSHServer() {
   <#
   .SYNOPSIS
-  Short description
+  Install, start, and enable OpenSSH Server on Windows.
 
   .DESCRIPTION
-  Long description
+  This function checks if the OpenSSH server (sshd) service is not installed, installs it, sets its startup type to Automatic, and starts the service if it's running.
 
   .EXAMPLE
-  An example
+  Install-OpenSSHServer
 
   .NOTES
-  General notes
+  Ensure that the OpenSSH server is NOT installed on your system before running this function.
+
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
