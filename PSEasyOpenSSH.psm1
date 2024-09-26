@@ -49,16 +49,17 @@ function Start-OpenSSHServer() {
   param ()
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
-
-  if (-not $serviceStatus) {
-    throw "$serviceName cannot be found."
-  }
-  elseif ($serviceStatus.Status -ne 'Running') {
-    try {
-      Start-Service -Name $serviceName
+  if ($PSCmdlet.ShouldProcess("$serviceName", "Start the service")) {
+    if (-not $serviceStatus) {
+      throw "$serviceName cannot be found."
     }
-    catch {
-      throw "Unable to start $serviceName service"
+    elseif ($serviceStatus.Status -ne 'Running') {
+      try {
+        Start-Service -Name $serviceName
+      }
+      catch {
+        throw "Unable to start $serviceName service"
+      }
     }
   }
 }
