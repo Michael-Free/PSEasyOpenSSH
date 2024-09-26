@@ -100,8 +100,6 @@ function Enable-OpenSSHServer {
 }
 
 function Stop-OpenSSHServer {
-  [CmdletBinding(SupportsShouldProcess = $true)]
-  param ()
   <#
   .SYNOPSIS
   Stops the OpenSSH Server Service.
@@ -115,6 +113,8 @@ function Stop-OpenSSHServer {
   .NOTES
   Ensure that the OpenSSH server is installed on your system before running this function.
   #>
+  [CmdletBinding(SupportsShouldProcess = $true)]
+  param ()
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
 
