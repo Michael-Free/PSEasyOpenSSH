@@ -11,8 +11,8 @@ function Install-OpenSSHServer() {
   catch {
     throw 'Unable to install OpenSSH Server'
   }
-  Start-OpenSSHServer
 
+  Start-OpenSSHServer
   # enable-opensshserver
 }
 
@@ -41,8 +41,6 @@ function Remove-OpenSSHServer() {
 
 function Disable-OpenSSHServer() {
 }
-
-
 
 function Stop-OpenSSHServer() {
 }
