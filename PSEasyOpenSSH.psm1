@@ -19,16 +19,16 @@ function Install-OpenSSHServer() {
   if ($openSSHFeature.State -eq 'Installed') {
     throw 'OpenSSH Server already installed...'
   }
-        
-  try {
-    Add-WindowsCapability -Online -Name $openSSHFeature.Name
+  if ($PSCmdlet.ShouldProcess("$openSSHFeature", 'Install it and enable the service to startup automatically')) {
+    try {
+      Add-WindowsCapability -Online -Name $openSSHFeature.Name
+    }
+    catch {
+      throw 'Unable to install OpenSSH Server'
+    }
+    Start-OpenSSHServer
+    Enable-OpenSSHServer
   }
-  catch {
-    throw 'Unable to install OpenSSH Server'
-  }
-
-  Start-OpenSSHServer
-  Enable-OpenSSHServer
 }
 
 function Start-OpenSSHServer() {
@@ -49,7 +49,7 @@ function Start-OpenSSHServer() {
   param ()
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
-  if ($PSCmdlet.ShouldProcess("$serviceName", "Start the service")) {
+  if ($PSCmdlet.ShouldProcess("$serviceName", 'Start the service')) {
     if (-not $serviceStatus) {
       throw "$serviceName cannot be found."
     }
@@ -64,33 +64,37 @@ function Start-OpenSSHServer() {
   }
 }
 
-function Enable-OpenSSHServer() {
+function Enable-OpenSSHServer {
   <#
   .SYNOPSIS
-  Short description
+  Enables and configures the OpenSSH server service (sshd) to start automatically.
 
   .DESCRIPTION
-  Long description
+  This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to automatic, and starts the service if it's not running.
 
   .EXAMPLE
-  An example
+  Enable-OpenSSHServer
 
   .NOTES
-  General notes
+  Ensure that the OpenSSH server is installed on your system before running this function.
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
+
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
 
   if (-not $serviceStatus) {
     throw "$serviceName cannot be found."
   }
-  try {
-    Set-Service -Name $serviceName -StartupType Automatic
-  }
-  catch {
-    throw "Unable to set $serviceName service to automatic startup"
+
+  if ($PSCmdlet.ShouldProcess("$serviceName", 'Set service to start automatically and enable OpenSSH server.')) {
+    try {
+      Set-Service -Name $serviceName -StartupType Automatic
+    }
+    catch {
+      throw "Unable to set $serviceName service to automatic startup"
+    }
   }
 }
 
@@ -117,7 +121,7 @@ function Stop-OpenSSHServer {
     throw "$serviceName cannot be found."
   }
 
-  if ($PSCmdlet.ShouldProcess("$serviceName", "Stop the service")) {
+  if ($PSCmdlet.ShouldProcess("$serviceName", 'Stop the service')) {
     try {
       Stop-Service -Name $serviceName -ErrorAction Stop
     }
@@ -127,35 +131,40 @@ function Stop-OpenSSHServer {
   }
 }
 
-function Disable-OpenSSHServer() {
+function Disable-OpenSSHServer {
   <#
   .SYNOPSIS
-  Short description
-  
+  Disables and configures the OpenSSH server service (sshd) to manual startup.
+
   .DESCRIPTION
-  Long description
-  
+  This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to manual, and stops the service if it's running.
+
   .EXAMPLE
-  An example
-  
+  Disable-OpenSSHServer
+
   .NOTES
-  General notes
+  Ensure that the OpenSSH server is installed on your system before running this function.
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
+
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
 
   if (-not $serviceStatus) {
     throw "$serviceName cannot be found."
   }
-  try {
-    Set-Service -Name $serviceName -StartupType Manual
-  }
-  catch {
-    throw "Unable to set $serviceName service to manual startup"
+
+  if ($PSCmdlet.ShouldProcess("$serviceName", "Set service to manual startup and disable OpenSSH server.")) {
+    try {
+      Set-Service -Name $serviceName -StartupType Manual
+    }
+    catch {
+      throw "Unable to set $serviceName service to manual startup"
+    }
   }
 }
+
 
 function Remove-OpenSSHServer() {
   <#
@@ -180,26 +189,20 @@ function Remove-OpenSSHServer() {
     throw 'OpenSSH Server not installed...'
   }
 
-  Stop-OpenSSHServer
+  if ($PSCmdlet.ShouldProcess("$serviceName", 'Stop, Disable the service and uninstall')) {
+    Stop-OpenSSHServer
 
-  Disable-OpenSSHServer
-
-  try {
-    Remove-WindowsCapability -Name $openSSHFeature.Name
-  }
-  catch {
-    throw 'Unable to uninstall OpenSSH Server'
+    Disable-OpenSSHServer
+  
+    try {
+      Remove-WindowsCapability -Name $openSSHFeature.Name
+    }
+    catch {
+      throw 'Unable to uninstall OpenSSH Server'
+    }
   }
 }
-#
-#PSUseShouldProcessForStateChangingF Warning      PSEasyOpen 19    Function 'Start-OpenSSHServer' has
-#unctions                                         SSH.psm1         verb that could change system state.
-#                                                                  Therefore, the function has to
-#                                                                  support 'ShouldProcess'.
-#PSUseShouldProcessForStateChangingF Warning      PSEasyOpen 51    Function 'Stop-OpenSSHServer' has
-#unctions                                         SSH.psm1         verb that could change system state.
-#                                                                  Therefore, the function has to
-#                                                                  support 'ShouldProcess'.
+
 #PSUseShouldProcessForStateChangingF Warning      PSEasyOpen 81    Function 'Remove-OpenSSHServer' has
 #unctions                                         SSH.psm1         verb that could change system state.
 #                                                                  Therefore, the function has to
