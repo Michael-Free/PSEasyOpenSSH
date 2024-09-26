@@ -63,8 +63,20 @@ function Stop-OpenSSHServer() {
   }
 }
 
-function Remove-OpenSSHServer() {
+function Disable-OpenSSHServer() {
+  $serviceName = 'sshd'
+  $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
+
+  if (-not $serviceStatus) {
+    throw "$serviceName cannot be found."
+  }
+  try {
+    Set-Service -Name $serviceName -StartupType Manual
+  }
+  catch {
+    throw "Unable to set $serviceName service to manual startup"
+  }
 }
 
-function Disable-OpenSSHServer() {
+function Remove-OpenSSHServer() {
 }
