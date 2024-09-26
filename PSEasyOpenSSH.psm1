@@ -103,16 +103,16 @@ function Stop-OpenSSHServer {
   param ()
   <#
   .SYNOPSIS
-  Short description
+  Stops the OpenSSH Server Service.
 
   .DESCRIPTION
-  Long description
+  This function checks if the OpenSSH server (sshd) service is installed and stops the service if it's running.
 
   .EXAMPLE
-  An example
+  Stop-OpenSSHServer
 
   .NOTES
-  General notes
+  Ensure that the OpenSSH server is installed on your system before running this function.
   #>
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
@@ -155,7 +155,7 @@ function Disable-OpenSSHServer {
     throw "$serviceName cannot be found."
   }
 
-  if ($PSCmdlet.ShouldProcess("$serviceName", "Set service to manual startup and disable OpenSSH server.")) {
+  if ($PSCmdlet.ShouldProcess("$serviceName", 'Set service to manual startup and disable OpenSSH server.')) {
     try {
       Set-Service -Name $serviceName -StartupType Manual
     }
@@ -169,16 +169,16 @@ function Disable-OpenSSHServer {
 function Remove-OpenSSHServer() {
   <#
   .SYNOPSIS
-  Short description
+  Removes OpenSSH Server from the Windows System.
 
   .DESCRIPTION
-  Long description
+  This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to manual, and stops the service if it's running. Afterwards, it removes OpenSSH Server from the system.
 
   .EXAMPLE
-  An example
+  Remove-OpenSSHServer
 
   .NOTES
-  General notes
+  Ensure that the OpenSSH server is installed on your system before running this function.
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
@@ -202,8 +202,3 @@ function Remove-OpenSSHServer() {
     }
   }
 }
-
-#PSUseShouldProcessForStateChangingF Warning      PSEasyOpen 81    Function 'Remove-OpenSSHServer' has
-#unctions                                         SSH.psm1         verb that could change system state.
-#                                                                  Therefore, the function has to
-#                                                                  support 'ShouldProcess'.
