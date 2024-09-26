@@ -34,16 +34,16 @@ function Install-OpenSSHServer() {
 function Start-OpenSSHServer() {
   <#
   .SYNOPSIS
-  Short description
+  Starts the OpenSSH Server ('sshd') Service
 
   .DESCRIPTION
-  Long description
+  This function checks if the OpenSSH server (sshd) service is installed and starts the service if it's not running.
 
   .EXAMPLE
-  An example
+  Start-OpenSSHServer
 
   .NOTES
-  General notes
+  Ensure that the OpenSSH server is installed on your system before running this function.
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
