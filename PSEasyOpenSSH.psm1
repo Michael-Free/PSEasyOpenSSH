@@ -79,4 +79,33 @@ function Disable-OpenSSHServer() {
 }
 
 function Remove-OpenSSHServer() {
+  $openSSHFeature = Get-WindowsCapability -Online | Where-Object { $_.Name -like 'OpenSSH.Server*' }
+
+  if (-not $openSSHFeature.State -eq 'Installed') {
+    throw 'OpenSSH Server not installed...'
+  }
+
+  Stop-OpenSSHServer
+
+  Disable-OpenSSHServer
+
+  try {
+    Remove-WindowsCapability -Name $openSSHFeature.Name
+  }
+  catch {
+    throw 'Unable to uninstall OpenSSH Server'
+  }
 }
+#
+#PSUseShouldProcessForStateChangingF Warning      PSEasyOpen 19    Function 'Start-OpenSSHServer' has
+#unctions                                         SSH.psm1         verb that could change system state.
+#                                                                  Therefore, the function has to
+#                                                                  support 'ShouldProcess'.
+#PSUseShouldProcessForStateChangingF Warning      PSEasyOpen 51    Function 'Stop-OpenSSHServer' has
+#unctions                                         SSH.psm1         verb that could change system state.
+#                                                                  Therefore, the function has to
+#                                                                  support 'ShouldProcess'.
+#PSUseShouldProcessForStateChangingF Warning      PSEasyOpen 81    Function 'Remove-OpenSSHServer' has
+#unctions                                         SSH.psm1         verb that could change system state.
+#                                                                  Therefore, the function has to
+#                                                                  support 'ShouldProcess'.
