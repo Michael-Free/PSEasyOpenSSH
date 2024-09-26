@@ -1,4 +1,17 @@
 function Install-OpenSSHServer() {
+  <#
+  .SYNOPSIS
+  Short description
+  
+  .DESCRIPTION
+  Long description
+  
+  .EXAMPLE
+  An example
+  
+  .NOTES
+  General notes
+  #>
   $openSSHFeature = Get-WindowsCapability -Online | Where-Object { $_.Name -like 'OpenSSH.Server*' }
 
   if ($openSSHFeature.State -eq 'Installed') {
@@ -17,6 +30,19 @@ function Install-OpenSSHServer() {
 }
 
 function Start-OpenSSHServer() {
+  <#
+  .SYNOPSIS
+  Short description
+  
+  .DESCRIPTION
+  Long description
+  
+  .EXAMPLE
+  An example
+  
+  .NOTES
+  General notes
+  #>
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
 
@@ -34,6 +60,19 @@ function Start-OpenSSHServer() {
 }
 
 function Enable-OpenSSHServer() {
+  <#
+  .SYNOPSIS
+  Short description
+  
+  .DESCRIPTION
+  Long description
+  
+  .EXAMPLE
+  An example
+  
+  .NOTES
+  General notes
+  #>
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
 
@@ -49,6 +88,19 @@ function Enable-OpenSSHServer() {
 }
 
 function Stop-OpenSSHServer() {
+  <#
+  .SYNOPSIS
+  Short description
+  
+  .DESCRIPTION
+  Long description
+  
+  .EXAMPLE
+  An example
+  
+  .NOTES
+  General notes
+  #>
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
 
@@ -64,6 +116,19 @@ function Stop-OpenSSHServer() {
 }
 
 function Disable-OpenSSHServer() {
+  <#
+  .SYNOPSIS
+  Short description
+  
+  .DESCRIPTION
+  Long description
+  
+  .EXAMPLE
+  An example
+  
+  .NOTES
+  General notes
+  #>
   $serviceName = 'sshd'
   $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
 
@@ -79,6 +144,19 @@ function Disable-OpenSSHServer() {
 }
 
 function Remove-OpenSSHServer() {
+  <#
+  .SYNOPSIS
+  Short description
+  
+  .DESCRIPTION
+  Long description
+  
+  .EXAMPLE
+  An example
+  
+  .NOTES
+  General notes
+  #>
   $openSSHFeature = Get-WindowsCapability -Online | Where-Object { $_.Name -like 'OpenSSH.Server*' }
 
   if (-not $openSSHFeature.State -eq 'Installed') {
