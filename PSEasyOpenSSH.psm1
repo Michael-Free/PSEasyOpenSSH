@@ -2,13 +2,13 @@ function Install-OpenSSHServer() {
   <#
   .SYNOPSIS
   Short description
-  
+
   .DESCRIPTION
   Long description
-  
+
   .EXAMPLE
   An example
-  
+
   .NOTES
   General notes
   #>
@@ -33,13 +33,13 @@ function Start-OpenSSHServer() {
   <#
   .SYNOPSIS
   Short description
-  
+
   .DESCRIPTION
   Long description
-  
+
   .EXAMPLE
   An example
-  
+
   .NOTES
   General notes
   #>
@@ -63,13 +63,13 @@ function Enable-OpenSSHServer() {
   <#
   .SYNOPSIS
   Short description
-  
+
   .DESCRIPTION
   Long description
-  
+
   .EXAMPLE
   An example
-  
+
   .NOTES
   General notes
   #>
@@ -147,13 +147,13 @@ function Remove-OpenSSHServer() {
   <#
   .SYNOPSIS
   Short description
-  
+
   .DESCRIPTION
   Long description
-  
+
   .EXAMPLE
   An example
-  
+
   .NOTES
   General notes
   #>
