@@ -3,6 +3,7 @@ A PowerShell module to make it easier to manage OpenSSH Server on a Windows Host
 
 ## Description
 
+## Installation
 
 ## Functions
 - [Install-OpenSSHServer](https://github.com/Michael-Free/PSEasyOpenSSH/blob/main/Docs/Install-OpenSSHServer.md)
