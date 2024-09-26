@@ -48,11 +48,25 @@ function Enable-OpenSSHServer() {
   }
 }
 
+function Stop-OpenSSHServer() {
+  $serviceName = 'sshd'
+  $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
+
+  if (-not $serviceStatus) {
+    throw "$serviceName cannot be found."
+  }
+  try {
+    Stop-Service -Name $serviceName
+  }
+  catch {
+    throw "Unable to stop $serviceName service"
+  }
+}
+
 function Remove-OpenSSHServer() {
 }
 
 function Disable-OpenSSHServer() {
 }
 
-function Stop-OpenSSHServer() {
-}
+
