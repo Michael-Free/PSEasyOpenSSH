@@ -13,7 +13,7 @@ function Install-OpenSSHServer() {
   }
 
   Start-OpenSSHServer
-  # enable-opensshserver
+  Enable-OpenSSHServer
 }
 
 function Start-OpenSSHServer() {
@@ -34,6 +34,18 @@ function Start-OpenSSHServer() {
 }
 
 function Enable-OpenSSHServer() {
+  $serviceName = 'sshd'
+  $serviceStatus = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
+
+  if (-not $serviceStatus) {
+    throw "$serviceName cannot be found."
+  }
+  try {
+    Set-Service -Name $serviceName -StartupType Automatic
+  }
+  catch {
+    throw "Unable to set $serviceName service to automatic startup"
+  }
 }
 
 function Remove-OpenSSHServer() {
