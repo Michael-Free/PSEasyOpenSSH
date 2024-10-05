@@ -186,17 +186,13 @@ function Remove-OpenSSHServer() {
 
   $openSSHFeature = Get-WindowsCapability -Online | Where-Object { $_.Name -like 'OpenSSH.Server*' }
 
-  if (-not $openSSHFeature.State -eq 'Installed') {
-    throw 'OpenSSH Server not installed...'
+  if ($openSSHFeature.State -ne 'Installed') {
+    throw 'OpenSSH Server not installed...'  
   }
 
-  if ($PSCmdlet.ShouldProcess("$serviceName", 'Stop, Disable the service and uninstall')) {
-    Stop-OpenSSHServer
-
-    Disable-OpenSSHServer
-  
+  if ($PSCmdlet.ShouldProcess("$($openSSHFeature.Name)", 'Stop, Disable the service and uninstall')) { 
     try {
-      Remove-WindowsCapability -Name $openSSHFeature.Name
+      Remove-WindowsCapability -Name $openSSHFeature.Name -Force
     }
     catch {
       throw 'Unable to uninstall OpenSSH Server'
