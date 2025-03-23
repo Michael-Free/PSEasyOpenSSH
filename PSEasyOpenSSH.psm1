@@ -1,10 +1,11 @@
 function Install-OpenSSHServer() {
   <#
   .SYNOPSIS
-  Install, start, and enable OpenSSH Server on Windows.
+    Install, start, and enable OpenSSH Server on Windows.
 
   .DESCRIPTION
-  This function checks if the OpenSSH server (sshd) service is not installed, installs it, sets its startup type to Automatic, and starts the service if it's running.
+    This function checks if the OpenSSH server (sshd) service is not installed, installs it, sets its 
+    startup type to Automatic, and starts the service if it's running.
 
   .EXAMPLE
   Install-OpenSSHServer
@@ -40,13 +41,14 @@ function Install-OpenSSHServer() {
 function Start-OpenSSHServer() {
   <#
   .SYNOPSIS
-  Starts the OpenSSH Server ('sshd') Service
+    Starts the OpenSSH Server ('sshd') Service
 
   .DESCRIPTION
-  This function checks if the OpenSSH server (sshd) service is installed and starts the service if it's not running.
+    This function checks if the OpenSSH server (sshd) service is installed and starts the service if it's
+    not running.
 
   .EXAMPLE
-  Start-OpenSSHServer
+    Start-OpenSSHServer
 
   .NOTES
     Author      : Michael Free
@@ -79,13 +81,14 @@ function Start-OpenSSHServer() {
 function Enable-OpenSSHServer {
   <#
   .SYNOPSIS
-  Enables and configures the OpenSSH server service (sshd) to start automatically.
+    Enables and configures the OpenSSH server service (sshd) to start automatically.
 
   .DESCRIPTION
-  This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to automatic, and starts the service if it's not running.
+    This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to 
+    automatic, and starts the service if it's not running.
 
   .EXAMPLE
-  Enable-OpenSSHServer
+    Enable-OpenSSHServer
 
   .NOTES
     Author      : Michael Free
@@ -119,13 +122,13 @@ function Enable-OpenSSHServer {
 function Stop-OpenSSHServer {
   <#
   .SYNOPSIS
-  Stops the OpenSSH Server Service.
+    Stops the OpenSSH Server Service.
 
   .DESCRIPTION
-  This function checks if the OpenSSH server (sshd) service is installed and stops the service if it's running.
+    This function checks if the OpenSSH server (sshd) service is installed and stops the service if it's running.
 
   .EXAMPLE
-  Stop-OpenSSHServer
+    Stop-OpenSSHServer
 
   .NOTES
     Author      : Michael Free
@@ -158,13 +161,14 @@ function Stop-OpenSSHServer {
 function Disable-OpenSSHServer {
   <#
   .SYNOPSIS
-  Disables and configures the OpenSSH server service (sshd) to manual startup.
+    Disables and configures the OpenSSH server service (sshd) to manual startup.
 
   .DESCRIPTION
-  This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to manual, and stops the service if it's running.
+    This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to manual,
+    and stops the service if it's running.
 
   .EXAMPLE
-  Disable-OpenSSHServer
+    Disable-OpenSSHServer
 
   .NOTES
     Author      : Michael Free
@@ -199,13 +203,14 @@ function Disable-OpenSSHServer {
 function Remove-OpenSSHServer() {
   <#
   .SYNOPSIS
-  Removes OpenSSH Server from the Windows System.
+    Removes OpenSSH Server from the Windows System.
 
   .DESCRIPTION
-  This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to manual, and stops the service if it's running. Afterwards, it removes OpenSSH Server from the system.
+    This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to manual,
+    and stops the service if it's running. Afterwards, it removes OpenSSH Server from the system.
 
   .EXAMPLE
-  Remove-OpenSSHServer
+    Remove-OpenSSHServer
 
   .NOTES
     Author      : Michael Free
