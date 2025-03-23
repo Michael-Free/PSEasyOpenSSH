@@ -12,7 +12,23 @@ A PowerShell module to make it easier to manage OpenSSH Server on a Windows Host
     - Familiarity with PowerShell.
 
 ## Installation
+There are two ways to install the `PSEasyOpenSSH` module:
 
+1. **Using PowerShell Gallery**
+    - Open PowerShell as an administrator and run the following command to install the module from the PowerShell Gallery:
+    ```powershell
+    Install-Module -Name PSEasyOpenSSH -Scope CurrentUser
+    ```
+2. **Manual Installation**
+    - Clone this repository using Git or download the ZIP file.
+    - Extract the contents of the ZIP file to a directory on your computer.
+    - Open PowerShell as an administrator and navigate to the directory where you extracted the module files.
+    - Run the following command to install the module:
+
+    ```powershell
+    Import-Module -Name .\PSEasyOpenSSH.ps1
+    ```
+    Note that the manual installation method requires you to have Git installed on your computer, as well as the ability to extract ZIP files. If you do not have these tools installed, you can use the PowerShell Gallery method instead.
 
 ## Usage
 
