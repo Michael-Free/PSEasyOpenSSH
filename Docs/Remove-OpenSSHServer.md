@@ -82,8 +82,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### None. This function does not accept pipeline input.
 ## OUTPUTS
 
+### None. This function does not return any output.
 ## NOTES
 Author      : Michael Free
 Date        : 2025-03-22

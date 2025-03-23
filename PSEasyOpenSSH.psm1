@@ -263,7 +263,14 @@ function Remove-OpenSSHServer() {
 
   .DESCRIPTION
     This function checks if the OpenSSH Server feature is installed. If it is, it removes OpenSSH Server from the system.
+  .PARAMETER None
+    This function does not accept any parameters.
 
+  .INPUTS
+    None. This function does not accept pipeline input.
+
+  .OUTPUTS
+    None. This function does not return any output.
   .EXAMPLE
     Remove-OpenSSHServer
 
