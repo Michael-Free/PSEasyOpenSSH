@@ -1,14 +1,35 @@
 function Install-OpenSSHServer() {
   <#
   .SYNOPSIS
-    Install, start, and enable OpenSSH Server on Windows.
+    Installs, starts, and enables the OpenSSH Server on Windows.
 
   .DESCRIPTION
-    This function checks if the OpenSSH server (sshd) service is not installed, installs it, sets its 
-    startup type to Automatic, and starts the service if it's running.
+    This function checks if the OpenSSH Server (sshd) service is installed. If it is not installed, the function
+    installs the OpenSSH Server, sets its startup type to Automatic, and starts the service.
+
+  .PARAMETER None
+    This function does not take any parameters.
+
+  .INPUTS
+    None. This function does not accept pipeline input.
+
+  .OUTPUTS
+    None. This function does not return any output.
 
   .EXAMPLE
-  Install-OpenSSHServer
+    Install-OpenSSHServer
+
+    This command installs the OpenSSH Server on Windows, starts it, and sets it to start automatically.
+
+  .EXAMPLE
+    Install-OpenSSHServer -WhatIf
+
+    This command simulates the installation of OpenSSH Server and shows what would happen without making changes.
+
+  .EXAMPLE
+    Install-OpenSSHServer -Confirm:$false
+
+    This command installs OpenSSH Server without prompting for confirmation.
 
   .NOTES
     Author      : Michael Free
@@ -41,14 +62,35 @@ function Install-OpenSSHServer() {
 function Start-OpenSSHServer() {
   <#
   .SYNOPSIS
-    Starts the OpenSSH Server ('sshd') Service
+    Starts the OpenSSH Server ('sshd') service.
 
   .DESCRIPTION
-    This function checks if the OpenSSH server (sshd) service is installed and starts the service if it's
-    not running.
+    This function checks if the OpenSSH server ('sshd') service is installed. If the service exists but is not running, 
+    the function starts it.
+
+  .PARAMETER None
+    This function does not take any parameters.
+
+  .INPUTS
+    None. This function does not accept pipeline input.
+
+  .OUTPUTS
+    None. This function does not return any output.
 
   .EXAMPLE
     Start-OpenSSHServer
+
+    This command starts the OpenSSH server ('sshd') service if it is not already running.
+
+  .EXAMPLE
+    Start-OpenSSHServer -WhatIf
+
+    This command simulates the action and shows what would happen without making changes.
+
+  .EXAMPLE
+    Start-OpenSSHServer -Confirm:$false
+
+    This command starts the OpenSSH server without prompting for confirmation.
 
   .NOTES
     Author      : Michael Free
@@ -84,11 +126,32 @@ function Enable-OpenSSHServer {
     Enables and configures the OpenSSH server service (sshd) to start automatically.
 
   .DESCRIPTION
-    This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to 
-    automatic, and starts the service if it's not running.
+    This function checks if the OpenSSH server ('sshd') service is installed. If it exists, 
+    the function sets its startup type to 'Automatic' to ensure it starts on boot.
+
+  .PARAMETER None
+    This function does not take any parameters.
+
+  .INPUTS
+    None. This function does not accept pipeline input.
+
+  .OUTPUTS
+    None. This function does not return any output.
 
   .EXAMPLE
     Enable-OpenSSHServer
+
+    This command enables the OpenSSH server ('sshd') service and sets it to start automatically.
+
+  .EXAMPLE
+    Enable-OpenSSHServer -WhatIf
+
+    This command simulates the action and shows what would happen without making changes.
+
+  .EXAMPLE
+    Enable-OpenSSHServer -Confirm:$false
+
+    This command enables the OpenSSH server without prompting for confirmation.
 
   .NOTES
     Author      : Michael Free
@@ -122,13 +185,35 @@ function Enable-OpenSSHServer {
 function Stop-OpenSSHServer {
   <#
   .SYNOPSIS
-    Stops the OpenSSH Server Service.
+    Stops the OpenSSH server ('sshd') service.
 
   .DESCRIPTION
-    This function checks if the OpenSSH server (sshd) service is installed and stops the service if it's running.
+    This function checks if the OpenSSH server ('sshd') service is installed. If it exists 
+    and is currently running, the function stops the service.
+
+  .PARAMETER None
+    This function does not accept any parameters.
+
+  .INPUTS
+    None. This function does not accept pipeline input.
+
+  .OUTPUTS
+    None. This function does not return any output.
 
   .EXAMPLE
     Stop-OpenSSHServer
+
+    This command stops the OpenSSH server ('sshd') service if it is running.
+
+  .EXAMPLE
+    Stop-OpenSSHServer -WhatIf
+
+    This command simulates stopping the OpenSSH service without actually performing the action.
+
+  .EXAMPLE
+    Stop-OpenSSHServer -Confirm:$false
+
+    This command stops the OpenSSH service without prompting for confirmation.
 
   .NOTES
     Author      : Michael Free
@@ -161,14 +246,35 @@ function Stop-OpenSSHServer {
 function Disable-OpenSSHServer {
   <#
   .SYNOPSIS
-    Disables and configures the OpenSSH server service (sshd) to manual startup.
+    Disables and configures the OpenSSH server ('sshd') service to manual startup.
 
   .DESCRIPTION
-    This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to manual,
-    and stops the service if it's running.
+    This function checks if the OpenSSH server ('sshd') service is installed. If the service exists, 
+    it sets the startup type to 'Manual' and stops the service if it is currently running.
+
+  .PARAMETER None
+    This function does not accept any parameters.
+
+  .INPUTS
+    None. This function does not accept pipeline input.
+
+  .OUTPUTS
+    None. This function does not return any output.
 
   .EXAMPLE
     Disable-OpenSSHServer
+
+    This command sets the OpenSSH server ('sshd') service to manual startup and stops it if it's running.
+
+  .EXAMPLE
+    Disable-OpenSSHServer -WhatIf
+
+    This command simulates disabling the OpenSSH server service without making any changes.
+
+  .EXAMPLE
+    Disable-OpenSSHServer -Confirm:$false
+
+    This command disables the OpenSSH server service without prompting for confirmation.
 
   .NOTES
     Author      : Michael Free
@@ -203,14 +309,25 @@ function Disable-OpenSSHServer {
 function Remove-OpenSSHServer() {
   <#
   .SYNOPSIS
-    Removes OpenSSH Server from the Windows System.
+    Removes OpenSSH Server from the Windows system.
 
   .DESCRIPTION
-    This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to manual,
-    and stops the service if it's running. Afterwards, it removes OpenSSH Server from the system.
+    This function checks if the OpenSSH Server feature is installed. If it is, it removes OpenSSH Server from the system.
 
   .EXAMPLE
     Remove-OpenSSHServer
+
+    This command removes OpenSSH Server if it is installed.
+
+  .EXAMPLE
+    Remove-OpenSSHServer -WhatIf
+
+    This command simulates the removal process without actually uninstalling OpenSSH Server.
+
+  .EXAMPLE
+    Remove-OpenSSHServer -Confirm:$false
+
+    This command removes OpenSSH Server without prompting for confirmation.
 
   .NOTES
     Author      : Michael Free
