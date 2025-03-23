@@ -10,8 +10,10 @@ function Install-OpenSSHServer() {
   Install-OpenSSHServer
 
   .NOTES
-  Ensure that the OpenSSH server is NOT installed on your system before running this function.
-
+    Author      : Michael Free
+    Date        : 2025-03-22
+    License     : Free Custom License (FCL) v1.0
+    Copyright   : 2025, Michael Free. All Rights Reserved.
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
@@ -44,7 +46,10 @@ function Start-OpenSSHServer() {
   Start-OpenSSHServer
 
   .NOTES
-  Ensure that the OpenSSH server is installed on your system before running this function.
+    Author      : Michael Free
+    Date        : 2025-03-22
+    License     : Free Custom License (FCL) v1.0
+    Copyright   : 2025, Michael Free. All Rights Reserved.  
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
@@ -77,7 +82,10 @@ function Enable-OpenSSHServer {
   Enable-OpenSSHServer
 
   .NOTES
-  Ensure that the OpenSSH server is installed on your system before running this function.
+    Author      : Michael Free
+    Date        : 2025-03-22
+    License     : Free Custom License (FCL) v1.0
+    Copyright   : 2025, Michael Free. All Rights Reserved.  
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
@@ -111,7 +119,10 @@ function Stop-OpenSSHServer {
   Stop-OpenSSHServer
 
   .NOTES
-  Ensure that the OpenSSH server is installed on your system before running this function.
+    Author      : Michael Free
+    Date        : 2025-03-22
+    License     : Free Custom License (FCL) v1.0
+    Copyright   : 2025, Michael Free. All Rights Reserved.
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
@@ -144,7 +155,10 @@ function Disable-OpenSSHServer {
   Disable-OpenSSHServer
 
   .NOTES
-  Ensure that the OpenSSH server is installed on your system before running this function.
+    Author      : Michael Free
+    Date        : 2025-03-22
+    License     : Free Custom License (FCL) v1.0
+    Copyright   : 2025, Michael Free. All Rights Reserved.
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
@@ -179,7 +193,10 @@ function Remove-OpenSSHServer() {
   Remove-OpenSSHServer
 
   .NOTES
-  Ensure that the OpenSSH server is installed on your system before running this function.
+    Author      : Michael Free
+    Date        : 2025-03-22
+    License     : Free Custom License (FCL) v1.0
+    Copyright   : 2025, Michael Free. All Rights Reserved.
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
