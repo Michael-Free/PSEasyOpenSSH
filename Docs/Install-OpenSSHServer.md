@@ -1,14 +1,14 @@
 ---
 external help file: PSEasyOpenSSH-help.xml
 Module Name: PSEasyOpenSSH
-online version:
+online version: https://github.com/Michael-Free/PSEasyOpenSSH/
 schema: 2.0.0
 ---
 
 # Install-OpenSSHServer
 
 ## SYNOPSIS
-Install, start, and enable OpenSSH Server on Windows.
+Installs, starts, and enables the OpenSSH Server on Windows.
 
 ## SYNTAX
 
@@ -17,7 +17,9 @@ Install-OpenSSHServer [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] 
 ```
 
 ## DESCRIPTION
-This function checks if the OpenSSH server (sshd) service is not installed, installs it, sets its startup type to Automatic, and starts the service if it's running.
+This function checks if the OpenSSH Server (sshd) service is installed.
+If it is not installed, the function
+installs the OpenSSH Server, sets its startup type to Automatic, and starts the service.
 
 ## EXAMPLES
 
@@ -25,6 +27,8 @@ This function checks if the OpenSSH server (sshd) service is not installed, inst
 ```
 Install-OpenSSHServer
 ```
+
+This command installs the OpenSSH Server on Windows, starts it, and sets it to start automatically.
 
 ## PARAMETERS
 
@@ -79,9 +83,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### None. This function does not accept pipeline input.
 ## OUTPUTS
 
+### None. This function does not return any output.
 ## NOTES
-Ensure that the OpenSSH server is NOT installed on your system before running this function.
+Author      : Michael Free
+Date        : 2025-03-22
+License     : Free Custom License (FCL) v1.0
+Copyright   : 2025, Michael Free.
+All Rights Reserved.
 
 ## RELATED LINKS
+
+[https://github.com/Michael-Free/PSEasyOpenSSH/](https://github.com/Michael-Free/PSEasyOpenSSH/)
+

@@ -1,7 +1,7 @@
 ---
 external help file: PSEasyOpenSSH-help.xml
 Module Name: PSEasyOpenSSH
-online version:
+online version: https://github.com/Michael-Free/PSEasyOpenSSH/
 schema: 2.0.0
 ---
 
@@ -17,7 +17,9 @@ Enable-OpenSSHServer [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [
 ```
 
 ## DESCRIPTION
-This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to automatic, and starts the service if it's not running.
+This function checks if the OpenSSH server ('sshd') service is installed.
+If it exists, 
+the function sets its startup type to 'Automatic' to ensure it starts on boot.
 
 ## EXAMPLES
 
@@ -25,6 +27,8 @@ This function checks if the OpenSSH server (sshd) service is installed, sets its
 ```
 Enable-OpenSSHServer
 ```
+
+This command enables the OpenSSH server ('sshd') service and sets it to start automatically.
 
 ## PARAMETERS
 
@@ -79,9 +83,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### None. This function does not accept pipeline input.
 ## OUTPUTS
 
+### None. This function does not return any output.
 ## NOTES
-Ensure that the OpenSSH server is installed on your system before running this function.
+Author      : Michael Free
+Date        : 2025-03-22
+License     : Free Custom License (FCL) v1.0
+Copyright   : 2025, Michael Free.
+All Rights Reserved.
 
 ## RELATED LINKS
+
+[https://github.com/Michael-Free/PSEasyOpenSSH/](https://github.com/Michael-Free/PSEasyOpenSSH/)
+

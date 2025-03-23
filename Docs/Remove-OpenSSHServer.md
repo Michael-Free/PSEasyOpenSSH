@@ -1,14 +1,14 @@
 ---
 external help file: PSEasyOpenSSH-help.xml
 Module Name: PSEasyOpenSSH
-online version:
+online version: https://github.com/Michael-Free/PSEasyOpenSSH/
 schema: 2.0.0
 ---
 
 # Remove-OpenSSHServer
 
 ## SYNOPSIS
-Removes OpenSSH Server from the Windows System.
+Removes OpenSSH Server from the Windows system.
 
 ## SYNTAX
 
@@ -17,8 +17,8 @@ Remove-OpenSSHServer [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [
 ```
 
 ## DESCRIPTION
-This function checks if the OpenSSH server (sshd) service is installed, sets its startup type to manual, and stops the service if it's running.
-Afterwards, it removes OpenSSH Server from the system.
+This function checks if the OpenSSH Server feature is installed.
+If it is, it removes OpenSSH Server from the system.
 
 ## EXAMPLES
 
@@ -26,6 +26,8 @@ Afterwards, it removes OpenSSH Server from the system.
 ```
 Remove-OpenSSHServer
 ```
+
+This command removes OpenSSH Server if it is installed.
 
 ## PARAMETERS
 
@@ -83,6 +85,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-Ensure that the OpenSSH server is installed on your system before running this function.
+Author      : Michael Free
+Date        : 2025-03-22
+License     : Free Custom License (FCL) v1.0
+Copyright   : 2025, Michael Free.
+All Rights Reserved.
 
 ## RELATED LINKS
+
+[https://github.com/Michael-Free/PSEasyOpenSSH/](https://github.com/Michael-Free/PSEasyOpenSSH/)
+
