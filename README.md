@@ -68,34 +68,3 @@ Your feedback is valuable to me. If you have any suggestions or ideas for improv
 I appreciate any help testing the project and reporting issues. If you have experience in testing, please let me know by creating an issue in the issue tracker on GitHub or by contacting me directly.
 
 Thank you for your interest in contributing to my project! Your contributions will help make it even better.
-
-
-
-
-
-
-
-
-
-
-## Description
-A PowerShellModule to make it easier to install, remove, and manage OpenSSH Server on Windows Hosts. 
-
-## Installation
-```
-Install-Module -Name PSEasyOpenSSH -Force
-```
-
-## Usage
-```
-Import-Module -Name PSEasyOpenSSH
-```
-- [Install-OpenSSHServer](https://github.com/Michael-Free/PSEasyOpenSSH/blob/main/Docs/Install-OpenSSHServer.md)
-- [Start-OpenSSHServer](https://github.com/Michael-Free/PSEasyOpenSSH/blob/main/Docs/Start-OpenSSHServer.md)
-- [Enable-OpenSSHServer](https://github.com/Michael-Free/PSEasyOpenSSH/blob/main/Docs/Enable-OpenSSHServer.md)
-- [Remove-OpenSSHServer](https://github.com/Michael-Free/PSEasyOpenSSH/blob/main/Docs/Remove-OpenSSHServer.md)
-- [Stop-OpenSSHServer](https://github.com/Michael-Free/PSEasyOpenSSH/blob/main/Docs/Stop-OpenSSHServer.md)
-- [Disable-OpenSSHServer](https://github.com/Michael-Free/PSEasyOpenSSH/blob/main/Docs/Disable-OpenSSHServer.md)
-
-## Author
-Michael Free
