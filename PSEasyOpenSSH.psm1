@@ -14,6 +14,9 @@ function Install-OpenSSHServer() {
     Date        : 2025-03-22
     License     : Free Custom License (FCL) v1.0
     Copyright   : 2025, Michael Free. All Rights Reserved.
+
+  .LINK
+    https://github.com/Michael-Free/PSEasyOpenSSH/
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
@@ -49,7 +52,10 @@ function Start-OpenSSHServer() {
     Author      : Michael Free
     Date        : 2025-03-22
     License     : Free Custom License (FCL) v1.0
-    Copyright   : 2025, Michael Free. All Rights Reserved.  
+    Copyright   : 2025, Michael Free. All Rights Reserved.
+
+  .LINK
+    https://github.com/Michael-Free/PSEasyOpenSSH/
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
@@ -85,7 +91,10 @@ function Enable-OpenSSHServer {
     Author      : Michael Free
     Date        : 2025-03-22
     License     : Free Custom License (FCL) v1.0
-    Copyright   : 2025, Michael Free. All Rights Reserved.  
+    Copyright   : 2025, Michael Free. All Rights Reserved.
+
+  .LINK
+    https://github.com/Michael-Free/PSEasyOpenSSH/
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
@@ -123,6 +132,9 @@ function Stop-OpenSSHServer {
     Date        : 2025-03-22
     License     : Free Custom License (FCL) v1.0
     Copyright   : 2025, Michael Free. All Rights Reserved.
+
+  .LINK
+    https://github.com/Michael-Free/PSEasyOpenSSH/
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
@@ -159,6 +171,9 @@ function Disable-OpenSSHServer {
     Date        : 2025-03-22
     License     : Free Custom License (FCL) v1.0
     Copyright   : 2025, Michael Free. All Rights Reserved.
+
+  .LINK
+    https://github.com/Michael-Free/PSEasyOpenSSH/
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
@@ -197,6 +212,9 @@ function Remove-OpenSSHServer() {
     Date        : 2025-03-22
     License     : Free Custom License (FCL) v1.0
     Copyright   : 2025, Michael Free. All Rights Reserved.
+
+  .LINK
+    https://github.com/Michael-Free/PSEasyOpenSSH/
   #>
   [CmdletBinding(SupportsShouldProcess = $true)]
   param ()
