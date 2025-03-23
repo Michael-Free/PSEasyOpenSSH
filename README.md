@@ -2,7 +2,14 @@
 A PowerShell module to make it easier to manage OpenSSH Server on a Windows Host.
 
 ## Prerequisites
-
+- Operating System:
+    - This is designed to work on both Windows Server and Windows Desktop.
+- PowerShell:
+    - PowerShell 5.1 or later installed on the host.
+- Permissions:
+    - Administrative privileges on the host in order to control Windows Services.
+- Basic Knowledge:
+    - Familiarity with PowerShell.
 
 ## Installation
 
