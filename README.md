@@ -33,6 +33,35 @@ There are two ways to install the `PSEasyOpenSSH` module:
 ## Usage
 
 ### Examples
+```powershell
+Install-OpenSSHServer
+```
+This command installs the OpenSSH Server on Windows, starts it, and sets it to start automatically.
+
+```powershell
+Start-OpenSSHServer
+```
+This command starts the OpenSSH server ('sshd') service if it is not already running.
+
+```powershell
+Enable-OpenSSHServer
+```
+This command enables the OpenSSH server ('sshd') service and sets it to start automatically.
+
+```powershell
+Stop-OpenSSHServer
+```
+This command stops the OpenSSH server ('sshd') service if it is running.
+
+```powershell
+Disable-OpenSSHServer
+```
+This command sets the OpenSSH server ('sshd') service to manual startup and stops it if it's running.
+
+```powershell
+Remove-OpenSSHServer
+```
+This command removes OpenSSH Server if it is installed.
 
 ## License
 
