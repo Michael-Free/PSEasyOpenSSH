@@ -44,7 +44,7 @@ function Install-OpenSSHServer {
   
   if ($PSCmdlet.ShouldProcess("$openSSHFeature", 'Install it and enable the service to startup automatically')) {
     try {
-      Add-WindowsCapability -Online -Name $openSSHFeature.Name
+      Add-WindowsCapability -Online -Name $openSSHFeature.Name > $null 2>&1
       return [PSCustomObject]@{
         Status     = "Success"
         Message    = "OpenSSH Server installed successfully."
