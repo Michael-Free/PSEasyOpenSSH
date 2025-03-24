@@ -1,4 +1,4 @@
-function Install-OpenSSHServer() {
+function Install-OpenSSHServer {
   <#
   .SYNOPSIS
     Installs, starts, and enables the OpenSSH Server on Windows.
@@ -49,7 +49,7 @@ function Install-OpenSSHServer() {
   }
 }
 
-function Start-OpenSSHServer() {
+function Start-OpenSSHServer {
   <#
   .SYNOPSIS
     Starts the OpenSSH Server ('sshd') service.
@@ -256,7 +256,7 @@ function Disable-OpenSSHServer {
 }
 
 
-function Remove-OpenSSHServer() {
+function Remove-OpenSSHServer {
   <#
   .SYNOPSIS
     Removes OpenSSH Server from the Windows system.
