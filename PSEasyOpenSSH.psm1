@@ -1,11 +1,11 @@
 function Install-OpenSSHServer {
   <#
   .SYNOPSIS
-    Installs, starts, and enables the OpenSSH Server on Windows.
+    Installs the OpenSSH Server on Windows.
 
   .DESCRIPTION
     This function checks if the OpenSSH Server (sshd) service is installed. If it is not installed, the function
-    installs the OpenSSH Server, sets its startup type to Automatic, and starts the service.
+    installs the OpenSSH Server and sets its startup type to Automatic.
 
   .PARAMETER None
     This function does not take any parameters.
@@ -14,12 +14,12 @@ function Install-OpenSSHServer {
     None. This function does not accept pipeline input.
 
   .OUTPUTS
-    None. This function does not return any output.
+    PSCustomObject with detailed information about whether the installation was successful or if it failed.
 
   .EXAMPLE
     Install-OpenSSHServer
 
-    This command installs the OpenSSH Server on Windows, starts it, and sets it to start automatically.
+    This command installs the OpenSSH Server on Windows and sets it to start automatically.
 
   .NOTES
     Author      : Michael Free
@@ -35,17 +35,29 @@ function Install-OpenSSHServer {
   $openSSHFeature = Get-WindowsCapability -Online | Where-Object { $_.Name -like 'OpenSSH.Server*' }
 
   if ($openSSHFeature.State -eq 'Installed') {
-    throw 'OpenSSH Server already installed...'
+    return [PSCustomObject]@{
+      Status     = "Success"
+      Message    = "OpenSSH Server already installed."
+      Installed  = $true
+    }
   }
+  
   if ($PSCmdlet.ShouldProcess("$openSSHFeature", 'Install it and enable the service to startup automatically')) {
     try {
       Add-WindowsCapability -Online -Name $openSSHFeature.Name
+      return [PSCustomObject]@{
+        Status     = "Success"
+        Message    = "OpenSSH Server installed successfully."
+        Installed  = $true
+      }
     }
     catch {
-      throw 'Unable to install OpenSSH Server'
+      return [PSCustomObject]@{
+        Status     = "Failure"
+        Message    = "Failed to install OpenSSH Server: $_"
+        Installed  = $false
+      }
     }
-    Start-OpenSSHServer
-    Enable-OpenSSHServer
   }
 }
 
